@@ -16,7 +16,7 @@ def find_relevant_keyword(csv_filename, input_sentence):
     similarity_score = similarities[0][most_relevant_idx]
     return most_relevant_keyword, similarity_score
 
-csv_filename = 'sentences_dict_with_pandas.csv'
+csv_filename = 'mappings.csv'
 
 while True:
     input_sentence = input("Enter a sentence (or type 'exit' to quit): ")
