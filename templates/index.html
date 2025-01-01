@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Screen Chatbot</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Full Screen Layout */
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        position: relative; /* To position video behind the chat container */
+        overflow: hidden;
+      }
+
+      /* Full Screen Background Video */
+      video.background-video {
+        position: absolute; /* Position behind the chat container */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the video covers the full viewport */
+        z-index: -1; /* Send the video behind other content */
+      }
+
+      /* Full Screen Chat Container */
+      .chat-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.1
+        ); /* Semi-transparent background */
+        border-radius: 15px;
+        overflow: hidden;
+        backdrop-filter: blur(0px); /* Frosted glass effect */
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+        z-index: 1; /* Ensure chat container stays above the video */
+      }
+
+      /* Chat Header */
+      .chat-header {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      /* Chatbox (Messages) */
+      .chat-box {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.1
+        ); /* Semi-transparent background */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Space between messages */
+      }
+
+      /* User Message Styling */
+      .user-message {
+        text-align: right;
+        background-color: rgba(0, 255, 0, 0.4); /* Light green */
+        padding: 10px 15px;
+        margin: 8px;
+        border-radius: 20px;
+        max-width: 75%;
+        display: inline-block;
+        align-self: flex-end; /* Align to the right */
+      }
+
+      /* Bot Message Styling */
+      .bot-message {
+        text-align: left;
+        background-color: rgba(0, 0, 255, 0.4); /* Light blue */
+        padding: 10px 15px;
+        margin: 8px;
+        border-radius: 20px;
+        max-width: 75%;
+        display: inline-block;
+        align-self: flex-start; /* Align to the left */
+      }
+
+      /* Chat Input Area */
+      .chat-input-container {
+        display: flex;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+      #message {
+        flex: 1;
+        padding: 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 25px;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: white;
+      }
+
+      button {
+        padding: 15px 20px;
+        margin-left: 10px;
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Avatar for Bot */
+      .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #4caf50;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .chat-header {
+          font-size: 20px;
+        }
+
+        #message {
+          font-size: 14px;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .chat-header {
+          font-size: 18px;
+        }
+
+        #message {
+          font-size: 12px;
+        }
+
+        button {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay loop muted>
+      <source
+        src="{{ url_for('static', filename='background.mp4') }}"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Full Screen Chat Container -->
+    <div class="chat-container">
+      <!-- Chat Header -->
+      <div class="chat-header">Chat with Bot</div>
+
+      <!-- Chatbox for Messages -->
+      <div class="chat-box" id="chatbox"></div>
+
+      <!-- Input Area -->
+      <div class="chat-input-container">
+        <input type="text" id="message" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script>
+      // Function to append messages
+      function appendMessage(message, sender) {
+        let chatbox = document.getElementById("chatbox");
+        let messageDiv = document.createElement("div");
+        messageDiv.classList.add(
+          sender === "user" ? "user-message" : "bot-message"
+        );
+
+        if (sender === "bot") {
+          let avatar = document.createElement("div");
+          avatar.classList.add("avatar");
+          messageDiv.appendChild(avatar);
+        }
+
+        messageDiv.textContent = message;
+        chatbox.appendChild(messageDiv);
+        chatbox.scrollTop = chatbox.scrollHeight; // Auto scroll to the latest message
+      }
+
+      // Function to send the message
+      function sendMessage() {
+        let message = document.getElementById("message").value.trim();
+        if (!message) return;
+
+        // Display the user's message
+        appendMessage(message, "user");
+        document.getElementById("message").value = ""; // Clear input field
+
+        // Send the message to Flask backend
+        fetch("/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: "message=" + encodeURIComponent(message),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Display the bot's response
+            appendMessage(data.response, "bot");
+          });
+      }
+
+      // Optional: Automatically focus the input field when page loads
+      window.onload = () => document.getElementById("message").focus();
+    </script>
+  </body>
+</html>

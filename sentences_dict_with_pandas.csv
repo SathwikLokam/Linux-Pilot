@@ -1,0 +1,64 @@
+Sentence,Command
+Activate the deauthenticate frames,DeAuth
+Isolate my system,Stop_networkManager
+What are the processes running on my system,top
+What is my current working directory,pwd
+Send ICMP packets,Send_ICMP
+List all files in the current directory,ls
+Check disk space,df -h
+Check system uptime,uptime
+Show system memory usage,free -m
+Display the hostname of the system,hostname
+Display the date and time,date
+Ping a remote server,ping <server>
+List all active network connections,netstat -tuln
+Show routing table,route -n
+Show current user information,whoami
+Find a file by name,find / -name <filename>
+Search for a word in a file,grep <word> <file>
+Show CPU information,lscpu
+Show hardware information,lshw
+Show all system logs,dmesg
+Restart the system,reboot
+Shut down the system,shutdown -h now
+Mount a drive,mount <drive> <mount_point>
+Unmount a drive,umount <drive>
+Change file permissions,chmod <permissions> <file>
+Change file owner,chown <owner>:<group> <file>
+Show process tree,pstree
+Kill a process by ID,kill <pid>
+Show disk usage,du -sh <directory>
+Display active users on the system,w
+Show system logs,journalctl
+Show IP address information,ip addr
+Show active user sessions,who
+Show environment variables,printenv
+Check for software updates,apt update
+Install a software package,apt install <package>
+Remove a software package,apt remove <package>
+Search for a software package,apt search <package>
+Show network interfaces,ifconfig
+Show open ports on the system,netstat -tulpn
+Show memory usage,vmstat
+List all installed packages,dpkg -l
+Show firewall status,ufw status
+Start a service,systemctl start <service>
+Stop a service,systemctl stop <service>
+Restart a service,systemctl restart <service>
+Enable a service at boot,systemctl enable <service>
+Disable a service at boot,systemctl disable <service>
+Check system load,top
+Show system information,uname -a
+Check network speed,speedtest-cli
+Change directory,cd <directory>
+Display a file's content,cat <file>
+Create a new directory,mkdir <directory>
+Create a new file,touch <file>
+Remove a file,rm <file>
+Remove a directory,rmdir <directory>
+Show the current date,date
+Find the largest files,du -ah / | sort -n -r | head -n 10
+Check for disk errors,fsck <disk>
+Show a list of all users,cat /etc/passwd
+hello,Hi there how can i help you
+open the file,OPEN_Handler
