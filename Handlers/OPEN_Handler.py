@@ -3,14 +3,17 @@ import Fetcher
 class Handler:
     string = str()
     ftc = None
+
+    #here the frame is semantical unit that need to be filled to return the command 
+    # for opening the file it's need only filen name
     frame = {
-        "name": ["Enter the name of the file", None],
+        "name": ["Enter the name of the file", None], #None represents no value given
         "age":["Enter the type of the file", None]
     }
     def __init__(self, request):
-        self.string = request
-        self.ftc = Fetcher.Fetcher(self.string)
-        self.autoFill()
+        self.string = request     #input from the trandformer
+        self.ftc = Fetcher.Fetch(self.string)  #passing the text of input given by user
+        self.autoFill() #fills the slots in frame if there exits arguments in it
     def autoFill(self):
         self.frame["name"][1]=self.ftc.files()[0] # list of files but i'm fetching first value
     def fill(self):

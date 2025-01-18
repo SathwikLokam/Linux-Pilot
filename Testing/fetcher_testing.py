@@ -1,5 +1,8 @@
-import Fetcher as ft
+import sys
+sys.path.append('../') # adding the path of the project to access
 
+
+import Fetcher as ft
 # Test text
 text = """
 Contact me at john.doe@example.com or visit my website at www.example.com. 
@@ -8,7 +11,7 @@ You can reach me at +1 5551234567 or (123) 456-7890.
 I use port 80 for HTTP, 443 for HTTPS, and 21 for FTP. Use alpha.txt and beta.jpg
 """
 
-fetcher=ft.Fetcher(text)
+fetcher=ft.Fetch(text)
 
 # Test the method
-print(fetcher.st)
+print(fetcher.files())

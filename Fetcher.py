@@ -1,7 +1,7 @@
 import re
 import json
 
-class Fetcher:
+class Fetch:
     def __init__(self, string):
         self.string = string
         
