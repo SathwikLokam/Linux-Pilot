@@ -1,37 +1,61 @@
+from flask import Flask, render_template, request, jsonify
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
 import importlib
+
+app = Flask(__name__)
+
 def find_relevant_keyword(csv_filename, input_sentence):
     df = pd.read_csv(csv_filename)
     sentences = df['Sentence'].tolist()
     keywords = df['Command'].tolist()
+
+    # Initialize the model
     model = SentenceTransformer('all-MiniLM-L6-v2')
+
+    # Encode the input sentence
     input_sentence_embedding = model.encode([input_sentence])
+
+    # Encode all sentences from the CSV
     sentence_embeddings = model.encode(sentences)
+
+    # Calculate cosine similarities
     similarities = cosine_similarity(input_sentence_embedding, sentence_embeddings)
+
+    # Find the index of the most relevant sentence
     most_relevant_idx = np.argmax(similarities)
+
+    # Get the most relevant keyword and similarity score
     most_relevant_keyword = keywords[most_relevant_idx]
     similarity_score = similarities[0][most_relevant_idx]
+
     return most_relevant_keyword, similarity_score
 
-csv_filename = 'mappings.csv'
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
 
-while True:
-    input_sentence = input("Enter a sentence (or type 'exit' to quit): ") #for transferring to the model
+@app.route("/ask", methods=["POST"])
+def ask():
+    message = request.form["message"]
     
-    if input_sentence.lower() == "exit":
-        print("Exiting the program.")
-        break
+    # Find the most relevant keyword and similarity score
+    most_relevant_keyword, similarity_score = find_relevant_keyword('mappings.csv', message)
     
-    most_relevant_keyword, similarity_score = find_relevant_keyword(csv_filename, input_sentence) #transferring to transformer
-    
-    if similarity_score < 0.4:    # if it's similarity is that less then make it not understable
-        print("I didn't get you. Could you please rephrase?")
+    if similarity_score < 0.4:
+        response = "I didn't get you. Could you please rephrase?"
     else:
-        print(f"Most relevant keyword: {most_relevant_keyword}")
-        print(f"Similarity score: {similarity_score:.4f}")
-    
-    obj=importlib.import_module("Handlers."+most_relevant_keyword).Handler(input_sentence) #dynamic loading
-    print(obj.fill()) # here this functions does is to make the frame to be filled 
+        try:
+            # Dynamically import the handler module
+            handler_module = importlib.import_module(f"Handlers.{most_relevant_keyword}")
+            handler_obj = handler_module.Handler(message)
+            response = handler_obj.fill()  # Call the fill method and get the response
+        except ModuleNotFoundError:
+            response = f"No handler found for the keyword: {most_relevant_keyword}"
+
+    return jsonify({'response': response})
+
+if __name__ == "__main__":
+    app.run(debug=True)
