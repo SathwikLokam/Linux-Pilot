@@ -1,0 +1,6 @@
+{
+  "arguments": {
+    "directory": ["Enter the directory path", null]
+  },
+  "representation": "ls <directory>"
+}
