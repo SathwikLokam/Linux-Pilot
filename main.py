@@ -4,8 +4,20 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
 import importlib
+import Fetcher
+import Handlers.Handler_control as Handler
 
 app = Flask(__name__)
+
+class Handler_interface(Handler.Handler):  # extended functionality 
+    def __init__(self,message,hndlr):
+        ftc_dict=Fetcher.Fetch(message).get_all()   # getting all the fetched arguments from the fetcher
+        print("Handler_interface initialized.")
+        super().__init__(ftc_dict,hndlr)
+
+
+
+
 
 def find_relevant_keyword(csv_filename, input_sentence):
     df = pd.read_csv(csv_filename)
@@ -49,8 +61,7 @@ def ask():
     else:
         try:
             # Dynamically import the handler module
-            handler_module = importlib.import_module(f"Handlers.{most_relevant_keyword}")
-            handler_obj = handler_module.Handler(message)
+            handler_obj = Handler_interface(message,"Handlers/frames/"+most_relevant_keyword+".json")
             response = handler_obj.fill()  # Call the fill method and get the response
         except ModuleNotFoundError:
             response = f"No handler found for the keyword: {most_relevant_keyword}"
