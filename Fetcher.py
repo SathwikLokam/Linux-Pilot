@@ -39,9 +39,9 @@ class Fetch:
         return re.findall(self.__domain_pattern, self.string)
     
     # New method to return the extracted data in JSON format
-    def to_json(self):
+    def get_all(self):
         # Prepare a dictionary with the results
-        data = {
+        fetched_arguments = {
             "emails": self.web(),
             "ipv4_addresses": self.ipv4s(),
             "ipv6_addresses": self.ipv6s(),
@@ -52,4 +52,4 @@ class Fetch:
         }
         
         # Return the data as a JSON string
-        return json.dumps(data, indent=4)
+        return fetched_arguments

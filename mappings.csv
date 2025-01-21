@@ -60,5 +60,5 @@ Show the current date,date
 Find the largest files,du -ah / | sort -n -r | head -n 10
 Check for disk errors,fsck <disk>
 Show a list of all users,cat /etc/passwd
-hello,Hi there how can i help you
-open the file,OPEN_Handler
+hello,hello_frame
+open the file,open_frame
