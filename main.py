@@ -7,6 +7,16 @@ import importlib
 
 app = Flask(__name__)
 
+<<<<<<< Updated upstream
+=======
+class Handler_interface(Handler.Handler):  # extended functionality 
+    def __init__(self,message,hndlr):
+        ftc_dict=Fetcher.Fetch(message).get_all()   # getting all the fetched arguments from the fetcher
+        print("Handler_interface initialized.")
+        super().__init__(ftc_dict,hndlr)
+
+
+>>>>>>> Stashed changes
 def find_relevant_keyword(csv_filename, input_sentence):
     df = pd.read_csv(csv_filename)
     sentences = df['Sentence'].tolist()
