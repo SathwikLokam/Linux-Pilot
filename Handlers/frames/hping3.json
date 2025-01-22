@@ -1,0 +1,7 @@
+{
+  "arguments": {
+    "ip": ["Enter the target IP address", null],
+    "flood": ["Enable flood mode (yes/no)", null]
+  },
+  "representation": "hping3 --flood <flood> <ip>"
+}

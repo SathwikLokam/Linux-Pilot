@@ -5,6 +5,10 @@ import sys
 sys.path.append('../') # adding the path of the project to access
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe13c5b6ae8ed4da8c09bb0d0f397bc6c8fea7dd
 class Handler:
     arguments = dict()
     frame = {}
@@ -81,7 +85,11 @@ class Handler:
 
 
 # Main script logic to select the frame dynamically based on the command
+<<<<<<< HEAD
 if __name__ == "__main__":  # this method only for testing ,it is only called when i run this file
+=======
+if __name__ == "__main__":
+>>>>>>> fe13c5b6ae8ed4da8c09bb0d0f397bc6c8fea7dd
 
     command = sys.argv[1]  # The command type (e.g., 'ls', 'cat', etc.)
     frame_file = f"{command}.json"  # Dynamic path based on the command
