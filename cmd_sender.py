@@ -1,5 +1,5 @@
-"""this code is to be works on the side of user"""
-"""as my per my configuration i port forwarded ip address i.e. 192.168.130.149 which is address of linux in vmware"""
+#This code is to be worked on the side of the user. 
+#As per my configuration, I port forwarded the IP address, i.e., 192.168.130.149, which is the address of Linux in VMware.
 
 import socket
 

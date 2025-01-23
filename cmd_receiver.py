@@ -1,5 +1,5 @@
-"""this is code that runs in the linux server or general system"""
-"""but there no need of changing code for the case of windows i.e. independent of os"""
+#this is code that runs in the linux server or general system
+#but there's no need of changing code for the case of Windows, i.e., independent of the OS.
 
 import socket
 
