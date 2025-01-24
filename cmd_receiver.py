@@ -1,34 +1,30 @@
-#this is code that runs in the linux server or general system
-#but there's no need of changing code for the case of Windows, i.e., independent of the OS.
+# this is file runs on side of the linux that run command
 
-import socket
 
-def server():
-    # Set up the server to listen on localhost and port 12345
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(("0.0.0.0", 12345))
-    server_socket.listen(1)
-    print("Server is listening on port 12345...")
+from flask import Flask, request, jsonify
+import subprocess
 
-    # Accept a connection from the client
-    client_socket, client_address = server_socket.accept()
-    print(f"Connection established with {client_address}")
+app = Flask(__name__)
 
-    while True:
-        # Receive the message from the client
-        data = client_socket.recv(1024).decode('utf-8')
-        
-        if not data:
-            break
-        
-        print(f"Received from client: {data}")
-        
-        # Send the same message back to the client
-        client_socket.send(data.encode('utf-8'))
-    
-    # Close the connection
-    client_socket.close()
-    server_socket.close()
+@app.route('/execute', methods=['POST'])
+def execute_command():
+    try:
+        # Get the command from the client
+        command = request.json.get('command')
+        if not command:
+            return jsonify({"error": "No command provided"}), 400
 
-if __name__ == "__main__":
-    server()
+        # Execute the command using subprocess
+        result = subprocess.run(command, shell=True, text=True, capture_output=True)
+
+        # Check the return code and send appropriate response
+        if result.returncode == 0:
+            return jsonify({"output": result.stdout}), 200
+        else:
+            return jsonify({"error": result.stderr}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=12345)

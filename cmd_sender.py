@@ -1,34 +1,37 @@
-#This code is to be worked on the side of the user. 
-#As per my configuration, I port forwarded the IP address, i.e., 192.168.130.149, which is the address of Linux in VMware.
 
-import socket
 
-def client():
-    # Create a TCP socket object
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
-    # Connect to the server running on the Linux VM, but we use 'localhost' for NAT port forwarding
-    # The traffic on port 12345 from the Windows host will be forwarded by VMware's NAT to the VM
-    # 'localhost' (or '127.0.0.1') refers to the Windows host machine, and VMware will handle the forwarding
-    # '12345' is the port on which the server in the Linux VM is listening
-    # Important: Ensure that the NAT port forwarding rule is set correctly in VMware (host port 12345 -> VM port 12345)
-    client_socket.connect(('192.168.130.149', 12345))  # Connect to 192.168.130.149 because of NAT port forwarding
-    #if you need a test both terminals in same host change it from 192.168.130.149 to localhost
-    
-    # Prompt the user to enter a message to send to the server
-    message = input("Enter a message to send to the server: ")
-    
-    #Send the message to the server (encoded as bytes)
-    client_socket.sendall(message.encode())  # Send the input message to the server
-    
-    # Receive the echoed message back from the server
-    data = client_socket.recv(1024)  # Receive the response (up to 1024 bytes)
-    
-    #print the message received from the server (server should echo the same message)
-    print(f"Received from server: {data.decode()}")  # Decode and print the received data
-    
-    # Close the socket after communication is done
-    client_socket.close()
+import requests
+
+class HostSetup:
+
+    def __init__(self, host='localhost', port=4444):
+        # Initialize the IP address and port
+        self.ip = host
+        self.port = port
+
+    def send_and_execute(self,command):
+        # Define the API endpoint
+        url = f"http://{self.ip}:{self.port}/execute"  # Ensure the URL is valid
+
+
+        # Prepare the data to send to the server (in JSON format)
+        data = {"command": command}
+
+        # Send the POST request to the server
+        response = requests.post(url, json=data)
+
+        # Check the response from the server
+        if response.status_code == 200:
+            # Success - print the output from the command
+            print(f"Server Response: {response.json().get('output')}")
+            return response.json().get('output')
+        else:
+            # Error - print the error message
+            print(f"Server Error: {response.json().get('error')}")
 
 if __name__ == "__main__":
-    client()  # Call the client function to run the client code
+    # Create an instance of HostSetup
+    # the following arguments are based on my configuration of NAT and VMware
+    host_setup = HostSetup(host='192.168.130.149', port=12345)  # Adjust the host and port as needed
+    # Call the method to send a command to the server
+    host_setup.send_and_execute(input("Enter the command to test: "))

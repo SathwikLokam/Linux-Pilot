@@ -6,14 +6,12 @@ import pandas as pd
 import importlib
 import Fetcher
 import Handlers.Handler_control as Handler
+import cmd_sender
 
 app = Flask(__name__)
+# arguments are based on my configuration of NAT and VMware
+message_sender=cmd_sender.HostSetup("192.168.130.149","12345")  
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> fe13c5b6ae8ed4da8c09bb0d0f397bc6c8fea7dd
 class Handler_interface(Handler.Handler):  # extended functionality 
     def __init__(self,message,hndlr):
         ftc_dict=Fetcher.Fetch(message).get_all()   # getting all the fetched arguments from the fetcher
@@ -21,13 +19,9 @@ class Handler_interface(Handler.Handler):  # extended functionality
         super().__init__(ftc_dict,hndlr)
 
 
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
 
 
 
->>>>>>> fe13c5b6ae8ed4da8c09bb0d0f397bc6c8fea7dd
 def find_relevant_keyword(csv_filename, input_sentence):
     df = pd.read_csv(csv_filename)
     sentences = df['Sentence'].tolist()
@@ -69,9 +63,11 @@ def ask():
         response = "I didn't get you. Could you please rephrase?"
     else:
         try:
-            # Dynamically import the handler module
+            # Dynamically import the handler module(json)
             handler_obj = Handler_interface(message,"Handlers/frames/"+most_relevant_keyword+".json")
-            response = handler_obj.fill()  # Call the fill method and get the response
+            command = handler_obj.fill()  # Call the fill method and get the response
+            response=message_sender.send_and_execute(command[0]) # sending to linux
+            print(f"command generate is {command[1]}")
         except ModuleNotFoundError:
             response = f"No handler found for the keyword: {most_relevant_keyword}"
 
