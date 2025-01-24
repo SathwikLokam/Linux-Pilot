@@ -15,7 +15,7 @@ Linux Pilot is an interactive system that translates natural language queries in
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/SathwikLokam/Linux-Pilot
+   git clone https://github.com/SathwikLokam/Linux-Pilot.git
    cd Linux-Pilot
    pip install -r requirements.txt
    python main.py
