@@ -8,12 +8,14 @@ class Handler:
     arguments = dict()
     frame = {}
     arguments=[]
+    json_file=str()
     
     def __init__(self, arguments, json_file):
+        self.json_file=json_file
         self.arguments = arguments  # Processed Input from the Fetcher
         print(f"request : {arguments} , json_file : {json_file}")
         # Load the correct frame from the specified JSON file
-        self.load_from_json(json_file)
+        self.load_from_json()
         
         self.autoFill()  # Fills the slots in frame if there exist arguments in it
 
@@ -21,24 +23,6 @@ class Handler:
         """ Automatically fill in values if needed. """
         # In case we want to pre-fill some fields based on initial input or pre-defined logic
         pass
-
-    def fill(self):
-        """ Fill all the placeholders in the frame, and generate the command. """
-        if "arguments" not in self.frame:
-            return ["Error: No 'arguments' key found in the frame.", 0]
-
-        # For each argument, ask for user input if it's not filled yet
-        for arg, (prompt, value) in self.frame["arguments"].items():
-            if value is None:
-                if self.arguments.get(arg, []):
-                    self.frame["arguments"][arg][1] = self.arguments[arg][0]  # Using the first element from self.arguments
-                else:
-                    user_input = input(f"{prompt}: ")
-                    if user_input not in ["exit", "quit"]:
-                        self.frame["arguments"][arg][1] = user_input
-                    else:
-                        return ["The creation of payload is terminated", 0]  # 0 indicates failure to create payload
-        return self.generate_command(), 1  # Return the command with status
 
     def generate_command(self):
         """ Generate the command dynamically based on the representation and arguments. """
@@ -52,19 +36,18 @@ class Handler:
         
         return command
 
-    def load_from_json(self, filename):
+    def load_from_json(self):
         """ Load the command frame dictionary from the specified JSON file. """
-        print(f">>>>>>>>> {filename}")
+        print(f">>>>>>>>> {self.json_file}")
         
-        if not os.path.exists(filename):
-            print(f"Error: File '{filename}' not found.")
+        if not os.path.exists(self.json_file):
+            print(f"Error: File '{self.json_file}' not found.")
             self.frame = {}
-            return
 
         try:
-            with open(filename, 'r') as json_file:
+            with open(self.json_file, 'r') as json_file:
                 self.frame = json.load(json_file)
-            print(f"Command frame loaded from {filename}")
+            print(f"Command frame loaded from {self.json_file}")
             
             # Check if 'arguments' key is present
             if "arguments" not in self.frame:
@@ -72,11 +55,13 @@ class Handler:
                 self.frame = {}
             
         except FileNotFoundError:
-            print(f"Error: File '{filename}' not found.")
+            print(f"Error: File '{self.json_file}' not found.")
             self.frame = {}
         except json.JSONDecodeError:
-            print(f"Error: Failed to decode JSON from file '{filename}'.")
+            print(f"Error: Failed to decode JSON from file '{self.json_file}'.")
             self.frame = {}
+        
+        return self.frame
 
 
 # Main script logic to select the frame dynamically based on the command
