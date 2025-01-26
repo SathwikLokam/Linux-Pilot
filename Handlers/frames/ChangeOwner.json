@@ -1,0 +1,17 @@
+{
+  "arguments": {
+    "owner": [
+      "Enter the new owner",
+      null
+    ],
+    "group": [
+      "Enter the new group",
+      null
+    ],
+    "file": [
+      "Enter the file to modify",
+      null
+    ]
+  },
+  "representation": "chown <owner>:<group> <file>"
+}

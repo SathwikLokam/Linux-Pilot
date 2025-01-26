@@ -1,0 +1,6 @@
+{
+  "arguments": {
+    "service": ["Enter the service to stop", null]
+  },
+  "representation": "systemctl stop <service>"
+}

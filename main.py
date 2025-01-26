@@ -32,8 +32,8 @@ def reset(): #resets all the variables and instances
 
 def find_relevant_keyword(csv_filename, input_sentence):
     df = pd.read_csv(csv_filename)
-    sentences = df['Sentence'].tolist()
-    keywords = df['Command'].tolist()
+    sentences = df['description'].tolist()
+    keywords = df['keyword'].tolist()
 
     # Initialize the model
     model = SentenceTransformer('all-MiniLM-L6-v2')

@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "drive": [
+      "Enter the drive to unmount",
+      null
+    ]
+  },
+  "representation": "umount <drive>"
+}

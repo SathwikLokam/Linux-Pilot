@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "service": [
+      "Enter the service to restart",
+      null
+    ]
+  },
+  "representation": "systemctl restart <service>"
+}

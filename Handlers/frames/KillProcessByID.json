@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "pid": [
+      "Enter the process ID",
+      null
+    ]
+  },
+  "representation": "kill <pid>"
+}

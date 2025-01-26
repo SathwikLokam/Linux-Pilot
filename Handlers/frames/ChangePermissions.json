@@ -1,0 +1,13 @@
+{
+  "arguments": {
+    "permissions": [
+      "Enter the permissions to set",
+      null
+    ],
+    "file": [
+      "Enter the file to modify",
+      null
+    ]
+  },
+  "representation": "chmod <permissions> <file>"
+}

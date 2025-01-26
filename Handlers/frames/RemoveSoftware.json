@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "package": [
+      "Enter the package to remove",
+      null
+    ]
+  },
+  "representation": "apt remove <package>"
+}

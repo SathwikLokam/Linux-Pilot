@@ -1,7 +1,7 @@
 {
   "arguments": {
     "file": ["Enter the name of the file", null],
-    "type": ["what is the type of file", null]
+    "type": ["What is the type of file", null]
   },
   "representation": "xdg-open <file>"
 }
