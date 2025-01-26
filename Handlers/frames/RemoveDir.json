@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "directory": [
+      "Enter the directory to remove",
+      null
+    ]
+  },
+  "representation": "rmdir <directory>"
+}

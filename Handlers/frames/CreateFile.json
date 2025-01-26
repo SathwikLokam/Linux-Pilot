@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "file": [
+      "Enter the file to create",
+      null
+    ]
+  },
+  "representation": "touch <file>"
+}

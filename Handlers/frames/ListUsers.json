@@ -1,0 +1,4 @@
+{
+  "arguments": {},
+  "representation": "cat /etc/passwd"
+}

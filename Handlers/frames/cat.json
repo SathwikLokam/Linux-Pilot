@@ -1,6 +1,0 @@
-{
-  "arguments": {
-    "name": ["Enter the name of the file", null]
-  },
-  "representation": "cat <name>"
-}

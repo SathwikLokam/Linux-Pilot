@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "file": [
+      "Enter the file to remove",
+      null
+    ]
+  },
+  "representation": "rm <file>"
+}

@@ -1,0 +1,13 @@
+{
+  "arguments": {
+    "word": [
+      "Enter the word to search",
+      null
+    ],
+    "file": [
+      "Enter the file to search in",
+      null
+    ]
+  },
+  "representation": "grep <word> <file>"
+}

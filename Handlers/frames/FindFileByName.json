@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "filename": [
+      "Enter the filename to search",
+      null
+    ]
+  },
+  "representation": "find / -name <filename>"
+}

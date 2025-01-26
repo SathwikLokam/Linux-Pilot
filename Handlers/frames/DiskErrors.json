@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "disk": [
+      "Enter the disk to check",
+      null
+    ]
+  },
+  "representation": "fsck <disk>"
+}

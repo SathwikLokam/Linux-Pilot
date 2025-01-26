@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "service": [
+      "Enter the service to disable",
+      null
+    ]
+  },
+  "representation": "systemctl disable <service>"
+}

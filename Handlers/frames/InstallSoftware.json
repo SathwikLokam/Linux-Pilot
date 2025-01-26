@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "package": [
+      "Enter the package to install",
+      null
+    ]
+  },
+  "representation": "apt install <package>"
+}

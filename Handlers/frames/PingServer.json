@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "server": [
+      "Enter the server to ping",
+      null
+    ]
+  },
+  "representation": "ping"
+}

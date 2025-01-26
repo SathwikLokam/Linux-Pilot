@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "directory": [
+      "Enter the directory to change to",
+      null
+    ]
+  },
+  "representation": "cd <directory>"
+}

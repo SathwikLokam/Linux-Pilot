@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "service": [
+      "Enter the service to start",
+      null
+    ]
+  },
+  "representation": "systemctl start <service>"
+}

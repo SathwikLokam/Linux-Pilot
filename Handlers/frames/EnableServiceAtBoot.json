@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "service": [
+      "Enter the service to enable",
+      null
+    ]
+  },
+  "representation": "systemctl enable <service>"
+}

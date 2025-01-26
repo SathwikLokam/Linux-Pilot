@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "directory": [
+      "Enter the directory to check",
+      null
+    ]
+  },
+  "representation": "du -sh <directory>"
+}

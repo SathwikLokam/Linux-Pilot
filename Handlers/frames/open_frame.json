@@ -1,6 +1,0 @@
-{
-  "arguments": {
-    "file": ["Enter the name of the file", null]
-  },
-  "representation": "xdg-open <file>"
-}

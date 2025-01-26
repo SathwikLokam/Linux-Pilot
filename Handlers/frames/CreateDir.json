@@ -1,0 +1,9 @@
+{
+  "arguments": {
+    "directory": [
+      "Enter the directory to create",
+      null
+    ]
+  },
+  "representation": "mkdir <directory>"
+}

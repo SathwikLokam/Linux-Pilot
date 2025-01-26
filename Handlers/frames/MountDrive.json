@@ -1,0 +1,13 @@
+{
+  "arguments": {
+    "drive": [
+      "Enter the drive to mount",
+      null
+    ],
+    "mount_point": [
+      "Enter the mount point",
+      null
+    ]
+  },
+  "representation": "mount <drive> <mount_point>"
+}
