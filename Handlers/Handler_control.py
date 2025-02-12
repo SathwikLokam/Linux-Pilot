@@ -7,7 +7,6 @@ sys.path.append('../') # adding the path of the project to access
 class Handler:
     arguments = dict()
     frame = {}
-    arguments=[]
     json_file=str()
     
     def __init__(self, arguments, json_file):

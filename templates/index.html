@@ -42,12 +42,6 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.1
-        ); /* Semi-transparent background */
         border-radius: 15px;
         overflow: hidden;
         backdrop-filter: blur(0px); /* Frosted glass effect */
@@ -72,12 +66,6 @@
         flex: 1;
         padding: 20px;
         overflow-y: auto;
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.1
-        ); /* Semi-transparent background */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         margin-bottom: 10px;
         display: flex;
@@ -85,29 +73,41 @@
         gap: 10px; /* Space between messages */
       }
 
-      /* User Message Styling */
-      .user-message {
-        text-align: right;
-        background-color: rgba(0, 255, 0, 0.4); /* Light green */
-        padding: 10px 15px;
-        margin: 8px;
-        border-radius: 20px;
-        max-width: 75%;
-        display: inline-block;
-        align-self: flex-end; /* Align to the right */
-      }
+   /* User Message Styling */
+.user-message {
+  color: black; /* Dark text for better readability */
+  text-align: right;
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly higher opacity for better visibility */
+  backdrop-filter: blur(15px); /* Moderate blur effect for the background */
+  padding: 12px 18px; /* Increase padding for more space */
+  margin: 10px; /* Increase margin between messages */
+  border-radius: 20px;
+  max-width: 80%; /* Allow more space for the message */
+  display: inline-block;
+  align-self: flex-end; /* Align to the right */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for better contrast */
+  font-weight: bold; /* Make the text bold */
+  font-size: 16px; /* Moderate font size */
+}
 
-      /* Bot Message Styling */
-      .bot-message {
-        text-align: left;
-        background-color: rgba(0, 0, 255, 0.4); /* Light blue */
-        padding: 10px 15px;
-        margin: 8px;
-        border-radius: 20px;
-        max-width: 75%;
-        display: inline-block;
-        align-self: flex-start; /* Align to the left */
-      }
+/* Bot Message Styling */
+.bot-message {
+  color: black; /* Dark text for better readability */
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly higher opacity for better visibility */
+  backdrop-filter: blur(15px); /* Moderate blur effect for the background */
+  padding: 12px 18px; /* Increase padding for more space */
+  margin: 10px; /* Increase margin between messages */
+  border-radius: 20px;
+  max-width: 80%; /* Allow more space for the message */
+  display: inline-block;
+  align-self: flex-start; /* Align to the left */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for better contrast */
+  font-weight: bold; /* Make the text bold */
+  font-size: 16px; /* Moderate font size */
+}
+
+
 
       /* Chat Input Area */
       .chat-input-container {
@@ -214,9 +214,7 @@
       function appendMessage(message, sender) {
         let chatbox = document.getElementById("chatbox");
         let messageDiv = document.createElement("div");
-        messageDiv.classList.add(
-          sender === "user" ? "user-message" : "bot-message"
-        );
+        messageDiv.classList.add(sender === "user" ? "user-message" : "bot-message");
 
         if (sender === "bot") {
           let avatar = document.createElement("div");
@@ -224,7 +222,8 @@
           messageDiv.appendChild(avatar);
         }
 
-        messageDiv.textContent = message;
+        // Use innerHTML instead of textContent to allow HTML rendering (e.g., <br> tags)
+        messageDiv.innerHTML = message;
         chatbox.appendChild(messageDiv);
         chatbox.scrollTop = chatbox.scrollHeight; // Auto scroll to the latest message
       }

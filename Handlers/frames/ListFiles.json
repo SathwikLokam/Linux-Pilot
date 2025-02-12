@@ -1,4 +1,6 @@
 {
-  "arguments": {},
-  "representation": "ls"
+  "arguments": {
+    "Directory": ["Enter the name of the Directory", null]
+  },
+  "representation": "ls <Directory>"
 }

@@ -105,7 +105,7 @@ def ask():
             response = f"No handler found for the keyword: {most_relevant_keyword}"
 
         reset() # reset
-        return jsonify({'response': response})
+        return jsonify({'response': response.replace("\n","<br>")})
 
 if __name__ == "__main__":
     app.run(debug=True)
