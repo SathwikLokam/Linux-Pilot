@@ -3,8 +3,7 @@
 import requests
 
 class HostSetup:
-
-    def __init__(self, host='localhost', port=4444):
+    def __init__(self, host='127.0.0.1', port=4444):
         # Initialize the IP address and port
         self.ip = host
         self.port = port
@@ -33,5 +32,6 @@ if __name__ == "__main__":
     # Create an instance of HostSetup
     # the following arguments are based on my configuration of NAT and VMware
     host_setup = HostSetup(host='192.168.130.149', port=12345)  # Adjust the host and port as needed
-    # Call the method to send a command to the server
+    # Call the method to send 
+    # a command to the server
     host_setup.send_and_execute(input("Enter the command to test: "))
