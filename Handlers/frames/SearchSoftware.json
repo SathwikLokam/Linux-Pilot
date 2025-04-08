@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "apt search <package>"
+  "representation": "apt search <package>",
+  "success_description": "The search for the <package> package was successful.",
+  "failure_description": "Failed to search for the <package> package.",
+  "validate": {
+    "package": "non_empty"
+  }
 }

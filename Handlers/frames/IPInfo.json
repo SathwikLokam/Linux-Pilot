@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "ip addr"
+  "representation": "ip addr",
+  "success_description": "The network interfaces and their IP addresses were displayed.",
+  "failure_description": "Failed to display the network interfaces and their IP addresses.",
+  "validate": {}
 }

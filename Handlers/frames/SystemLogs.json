@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "journalctl"
+  "representation": "journalctl",
+  "success_description": "The system logs were successfully displayed.",
+  "failure_description": "Failed to display the system logs.",
+  "validate": {}
 }

@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "uptime"
+  "representation": "uptime",
+  "success_description": "The system uptime was successfully displayed.",
+  "failure_description": "Failed to display the system uptime.",
+  "validate": {}
 }

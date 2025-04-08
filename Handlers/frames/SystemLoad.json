@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "top"
+  "representation": "top",
+  "success_description": "The system processes were successfully displayed.",
+  "failure_description": "Failed to display the system processes.",
+  "validate": {}
 }

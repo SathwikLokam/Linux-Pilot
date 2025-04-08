@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "who"
+  "representation": "who",
+  "success_description": "The list of currently logged-in users was displayed.",
+  "failure_description": "Failed to display the list of currently logged-in users.",
+  "validate": {}
 }

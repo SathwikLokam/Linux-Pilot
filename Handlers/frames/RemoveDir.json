@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "rmdir <directory>"
+  "representation": "rmdir <directory>",
+  "success_description": "The <directory> directory was successfully removed.",
+  "failure_description": "Failed to remove the <directory> directory.",
+  "validate": {
+    "directory": "non_empty"
+  }
 }

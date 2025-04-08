@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "speedtest-cli"
+  "representation": "speedtest-cli",
+  "success_description": "The network speed test results were displayed.",
+  "failure_description": "Failed to display the network speed test results.",
+  "validate": {}
 }

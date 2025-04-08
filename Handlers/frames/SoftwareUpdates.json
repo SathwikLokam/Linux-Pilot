@@ -1,4 +1,8 @@
 {
   "arguments": {},
-  "representation": "apt update"
+  "representation": "apt update",
+  "success_description": "The package list was successfully updated.",
+  "failure_description": "Failed to update the package list.",
+  "validate": {}
+
 }

@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "df -h"
+  "representation": "df -h",
+  "success_description": "The disk space usage was displayed in a human-readable format.",
+  "failure_description": "Failed to display the disk space usage.",
+  "validate": {}
 }

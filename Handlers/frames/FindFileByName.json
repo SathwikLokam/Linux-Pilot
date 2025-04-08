@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "find / -name <filename>"
+  "representation": "find / -name <filename>",
+  "success_description": "The <filename> file was found.",
+  "failure_description": "Failed to find the <filename> file.",
+  "validate": {
+    "filename": "non_empty"
+  }
 }

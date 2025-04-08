@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "cd <directory>"
+  "representation": "cd <directory>",
+  "success_description": "The current directory was changed to <directory>.",
+  "failure_description": "Failed to change the current directory to <directory>.",
+  "validate": {
+    "directory": "non_empty"
+  }
 }

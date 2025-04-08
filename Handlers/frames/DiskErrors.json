@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "fsck <disk>"
+  "representation": "fsck <disk>",
+  "success_description": "The <disk> disk was checked and repaired (if necessary).",
+  "failure_description": "Failed to check or repair the <disk> disk.",
+  "validate": {
+    "disk": "non_empty"
+  }
 }

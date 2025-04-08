@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "route -n"
+  "representation": "route -n",
+  "success_description": "The network routing table",
+  "failure_description": "Failed to display the network routing table.",
+  "validate": {}
 }

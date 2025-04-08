@@ -1,0 +1,18 @@
+Get:1 https://deb.parrot.sh/parrot lory InRelease [29.8 kB]
+Get:2 https://deb.parrot.sh/direct/parrot lory-security InRelease [29.5 kB]
+Get:3 https://deb.parrot.sh/parrot lory-backports InRelease [29.7 kB]
+Get:4 https://deb.parrot.sh/parrot lory/main amd64 Packages [19.2 MB]
+Get:5 https://deb.parrot.sh/parrot lory/contrib amd64 Packages [121 kB]
+Get:6 https://deb.parrot.sh/parrot lory/non-free amd64 Packages [224 kB]
+Get:7 https://deb.parrot.sh/parrot lory/non-free-firmware amd64 Packages [31.6 kB]
+Get:8 https://deb.parrot.sh/direct/parrot lory-security/main amd64 Packages [489 kB]
+Get:9 https://deb.parrot.sh/direct/parrot lory-security/contrib amd64 Packages [1,213 B]
+Get:10 https://deb.parrot.sh/parrot lory-backports/main amd64 Packages [674 kB]
+Get:11 https://deb.parrot.sh/parrot lory-backports/contrib amd64 Packages [11.2 kB]
+Get:12 https://deb.parrot.sh/parrot lory-backports/non-free amd64 Packages [24.2 kB]
+Get:13 https://deb.parrot.sh/parrot lory-backports/non-free-firmware amd64 Packages [6,305 B]
+Fetched 20.9 MB in 8s (2,654 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+138 packages can be upgraded. Run 'apt list --upgradable' to see them.

@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "w"
+  "representation": "w",
+  "success_description": "The list of logged-in users and their activity was displayed.",
+  "failure_description": "Failed to display the list of logged-in users and their activity.",
+  "validate": {}
 }

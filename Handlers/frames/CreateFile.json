@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "touch <file>"
+  "representation": "touch <file>",
+  "success_description": "The <file> file was created or updated.",
+  "failure_description": "Failed to create or update the <file> file.",
+  "validate": {
+    "file": "non_empty"
+  }
 }

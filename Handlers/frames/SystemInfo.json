@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "uname -a"
+  "representation": "uname -a",
+  "success_description": "The system information was successfully displayed.",
+  "failure_description": "Failed to display the system information.",
+  "validate": {}
 }

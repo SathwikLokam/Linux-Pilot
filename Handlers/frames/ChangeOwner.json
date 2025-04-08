@@ -13,5 +13,12 @@
       null
     ]
   },
-  "representation": "chown <owner>:<group> <file>"
+  "representation": "chown <owner>:<group> <file>",
+  "success_description": "The ownership of the <file> file was changed to <owner>:<group>.",
+  "failure_description": "Failed to change the ownership of the <file> file to <owner>:<group>.",
+  "validate": {
+    "owner": "non_empty",
+    "group": "non_empty",
+    "file": "non_empty"
+  }
 }

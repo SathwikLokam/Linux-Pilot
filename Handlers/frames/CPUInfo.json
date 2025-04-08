@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "lscpu"
+  "representation": "lscpu",
+  "success_description": "The CPU architecture information was displayed.",
+  "failure_description": "Failed to display the CPU architecture information.",
+  "validate": {}
 }

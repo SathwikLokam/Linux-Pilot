@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "cat /etc/passwd"
+  "representation": "cat /etc/passwd",
+  "success_description": "The content of the /etc/passwd file was displayed.",
+  "failure_description": "Failed to display the content of the /etc/passwd file.",
+  "validate": {}
 }

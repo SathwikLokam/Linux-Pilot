@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "netstat -tulpn"
+  "representation": "netstat -tulpn",
+  "success_description": "The active connections and listening ports were displayed.",
+  "failure_description": "Failed to display the active connections and listening ports.",
+  "validate": {}
 }

@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "kill <pid>"
+  "representation": "kill <pid>",
+  "success_description": "The process with PID <pid> was successfully terminated.",
+  "failure_description": "Failed to terminate the process with PID <pid>.",
+  "validate": {
+    "pid": "non_empty"
+  }
 }

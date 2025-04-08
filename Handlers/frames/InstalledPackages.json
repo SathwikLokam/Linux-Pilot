@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "dpkg -l"
+  "representation": "dpkg -l",
+  "success_description": "The list of installed packages was displayed.",
+  "failure_description": "Failed to display the list of installed packages.",
+  "validate": {}
 }

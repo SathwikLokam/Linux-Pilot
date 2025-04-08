@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "free -m"
+  "representation": "free -m",
+  "success_description": "The memory usage in megabytes.",
+  "failure_description": "Failed to display the memory usage in megabytes.",
+  "validate": {}
 }

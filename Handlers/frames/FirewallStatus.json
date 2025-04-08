@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "ufw status"
+  "representation": "ufw status",
+  "success_description": "The firewall status.",
+  "failure_description": "Failed to display the firewall status.",
+  "validate": {}
 }

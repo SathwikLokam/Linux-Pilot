@@ -9,5 +9,11 @@
       null
     ]
   },
-  "representation": "grep <word> <file>"
+  "representation": "grep <word> <file>",
+  "success_description": "The word <word> was found in the <file> file.",
+  "failure_description": "Failed to find the word <word> in the <file> file.",
+  "validate": {
+    "word": "non_empty",
+    "file": "non_empty"
+  }
 }

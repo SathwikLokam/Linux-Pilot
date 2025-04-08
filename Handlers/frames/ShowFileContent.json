@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "cat <file>"
+  "representation": "cat <file>",
+  "success_description": "The contents of the <file> file were successfully displayed.",
+  "failure_description": "Failed to display the contents of the <file> file.",
+  "validate": {
+    "file": "non_empty"
+  }
 }
