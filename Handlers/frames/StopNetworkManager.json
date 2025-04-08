@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "Stop_networkManager"
+  "representation": "systemctl start NetworkManager",
+  "success_description": "The NetworkManager service was successfully stopped and your device isolated.",
+  "failure_description": "Failed to stop the NetworkManager service to isolate your device.",
+  "validate": {}
 }

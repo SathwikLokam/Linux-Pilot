@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "ifconfig"
+  "representation": "ifconfig",
+  "success_description": "The network interfaces and their configurations.",
+  "failure_description": "Failed to display the network interfaces and their configurations.",
+  "validate": {}
 }

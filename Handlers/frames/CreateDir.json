@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "mkdir <directory>"
+  "representation": "mkdir <directory>",
+  "success_description": "The <directory> directory was created.",
+  "failure_description": "Failed to create the <directory> directory.",
+  "validate": {
+    "directory": "non_empty"
+  }
 }

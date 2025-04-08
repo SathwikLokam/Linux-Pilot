@@ -9,5 +9,11 @@
       null
     ]
   },
-  "representation": "mount <drive> <mount_point>"
+  "representation": "mount <drive> <mount_point>",
+  "success_description": "The <drive> drive was successfully mounted to <mount_point>.",
+  "failure_description": "Failed to mount the <drive> drive to <mount_point>.",
+  "validate": {
+    "drive": "non_empty",
+    "mount_point": "non_empty"
+  }
 }

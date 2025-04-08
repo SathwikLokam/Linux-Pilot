@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "du -ah / | sort -n -r | head -n 10"
+  "representation": "du -ah / | sort -n -r | head -n 10",
+  "success_description": "The top 10 largest files or directories in the <directory> were displayed.",
+  "failure_description": "Failed to display the top 10 largest files or directories in the <directory>.",
+  "validate": {
+    "directory": "non_empty"
+  }
 }

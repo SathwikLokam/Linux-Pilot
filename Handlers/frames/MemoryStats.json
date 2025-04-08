@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "vmstat"
+  "representation": "vmstat",
+  "success_description": "The virtual memory statistics were displayed.",
+  "failure_description": "Failed to display the virtual memory statistics.",
+  "validate": {}
 }

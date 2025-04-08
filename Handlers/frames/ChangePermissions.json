@@ -9,5 +9,11 @@
       null
     ]
   },
-  "representation": "chmod <permissions> <file>"
+  "representation": "chmod <permissions> <file>",
+  "success_description": "The permissions for the <file> file were changed to <permissions>.",
+  "failure_description": "Failed to change the permissions for the <file> file to <permissions>.",
+  "validate": {
+    "permissions": "non_empty",
+    "file": "non_empty"
+  }
 }

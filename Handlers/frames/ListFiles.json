@@ -1,6 +1,14 @@
 {
   "arguments": {
-    "Directory": ["Enter the name of the Directory", null]
+    "Directory": [
+      "Enter the name of the Directory",
+      null
+    ]
   },
-  "representation": "ls <Directory>"
+  "representation": "ls <Directory>",
+  "success_description": "The contents of the <Directory> directory were displayed.",
+  "failure_description": "Failed to display the contents of the <Directory> directory.",
+  "validate": {
+    "Directory": "non_empty"
+  }
 }

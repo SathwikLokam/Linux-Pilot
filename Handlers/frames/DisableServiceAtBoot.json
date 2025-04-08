@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "systemctl disable <service>"
+  "representation": "systemctl disable <service>",
+  "success_description": "The <service> service was disabled.",
+  "failure_description": "Failed to disable the <service> service.",
+  "validate": {
+    "service": "non_empty"
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "arguments": {},
+  "representation": "systemctl start NetworkManager",
+  "success_description": "The NetworkManager service was successfully started",
+  "failure_description": "Failed to start the NetworkManager service",
+  "validate": {}
+}

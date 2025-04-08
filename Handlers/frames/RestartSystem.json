@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "reboot"
+  "representation": "reboot",
+  "success_description": "The system was successfully rebooting the system.",
+  "failure_description": "Failed to reboot the system.",
+  "validate": {}
 }

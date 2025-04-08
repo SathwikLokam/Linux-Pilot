@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "ping"
+  "representation": "ping <server>",
+  "success_description": "The server <server> was successfully reached.",
+  "failure_description": "Failed to reach the server <server>.",
+  "validate": {
+    "server": "non_empty"
+  }
 }

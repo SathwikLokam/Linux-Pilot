@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "printenv"
+  "representation": "printenv",
+  "success_description": "The environment variables",
+  "failure_description": "Failed to display the environment variables.",
+  "validate": {}
 }

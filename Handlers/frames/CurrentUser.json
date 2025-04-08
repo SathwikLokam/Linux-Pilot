@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "whoami"
+  "representation": "whoami",
+  "success_description": "The current logged-in user.",
+  "failure_description": "Failed to display the current logged-in user.",
+  "validate": {}
 }

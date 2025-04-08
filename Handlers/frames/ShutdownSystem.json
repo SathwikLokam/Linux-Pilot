@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "shutdown -h now"
+  "representation": "shutdown -h now",
+  "success_description": "The system was successfully shut down.",
+  "failure_description": "Failed to shut down the system.",
+  "validate": {}
 }

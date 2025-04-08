@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "pwd"
+  "representation": "pwd",
+  "success_description": "The current working directory was displayed.",
+  "failure_description": "Failed to display the current working directory.",
+  "validate": {}
 }

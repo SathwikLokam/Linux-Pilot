@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "rm <file>"
+  "representation": "rm <file>",
+  "success_description": "The <file> file was successfully removed.",
+  "failure_description": "Failed to remove the <file> file.",
+  "validate": {
+    "file": "non_empty"
+  }
 }

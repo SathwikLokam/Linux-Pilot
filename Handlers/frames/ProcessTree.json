@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "pstree"
+  "representation": "pstree",
+  "success_description": "The process tree was successfully displayed.",
+  "failure_description": "Failed to display the process tree.",
+  "validate": {}
 }

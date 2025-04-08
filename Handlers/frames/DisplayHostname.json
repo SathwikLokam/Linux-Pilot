@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "hostname"
+  "representation": "hostname",
+  "success_description": "The system hostname was displayed.",
+  "failure_description": "Failed to display the system hostname.",
+  "validate": {}
 }

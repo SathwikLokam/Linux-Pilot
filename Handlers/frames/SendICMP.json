@@ -1,4 +1,14 @@
 {
-  "arguments": {},
-  "representation": "Send_ICMP"
+  "arguments": {
+    "host": [
+      "Enter the host to ping",
+      null
+    ]
+  },
+  "representation": "ping -c 4 <host>",
+  "success_description": "The ICMP request was successfully sent to <host> 4 times.",
+  "failure_description": "Failed to send the ICMP request to <host> 4 times.",
+  "validate": {
+    "host": "non_empty"
+  }
 }

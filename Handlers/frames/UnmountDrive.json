@@ -5,5 +5,8 @@
       null
     ]
   },
-  "representation": "umount <drive>"
+  "representation": "umount <drive>",
+  "success_description": "The drive was successfully unmounted.",
+  "failure_description": "Failed to unmount the drive.",
+  "validate": {}
 }

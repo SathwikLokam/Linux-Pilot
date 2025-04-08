@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "lshw"
+  "representation": "lshw",
+  "success_description": "The hardware configuration details.",
+  "failure_description": "Failed to display the hardware configuration details.",
+  "validate": {}
 }

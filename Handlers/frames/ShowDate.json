@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "date"
+  "representation": "date",
+  "success_description": "The current date and time were successfully displayed.",
+  "failure_description": "Failed to display the current date and time.",
+  "validate": {}
 }

@@ -1,6 +1,14 @@
 {
   "arguments": {
-    "service": ["Enter the service to stop", null]
+    "service": [
+      "Enter the service to stop",
+      null
+    ]
   },
-  "representation": "systemctl stop <service>"
+  "representation": "systemctl stop <service>",
+  "success_description": "The <service> service was successfully stopped.",
+  "failure_description": "Failed to stop the <service> service.",
+  "validate": {
+    "service": "non_empty"
+  }
 }

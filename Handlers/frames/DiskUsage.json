@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "du -sh <directory>"
+  "representation": "du -sh <directory>",
+  "success_description": "The disk usage for the <directory> directory was displayed in a human-readable format.",
+  "failure_description": "Failed to display the disk usage for the <directory> directory.",
+  "validate": {
+    "directory": "non_empty"
+  }
 }

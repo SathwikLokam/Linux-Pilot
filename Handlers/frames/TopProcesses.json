@@ -1,4 +1,7 @@
 {
   "arguments": {},
-  "representation": "top"
+  "representation": "top",
+  "success_description": "The system resource usage.",
+  "failure_description": "Failed to display the system resource usage.",
+  "validate": {}
 }

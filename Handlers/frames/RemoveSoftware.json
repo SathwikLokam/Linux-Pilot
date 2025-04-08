@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "apt remove <package>"
+  "representation": "apt remove <package>",
+  "success_description": "The <package> package was successfully removed.",
+  "failure_description": "Failed to remove the <package> package.",
+  "validate": {
+    "package": "non_empty"
+  }
 }

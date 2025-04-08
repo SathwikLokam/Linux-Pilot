@@ -5,5 +5,10 @@
       null
     ]
   },
-  "representation": "apt install <package>"
+  "representation": "apt install <package>",
+  "success_description": "The <package> package was successfully installed.",
+  "failure_description": "Failed to install the <package> package.",
+  "validate": {
+    "package": "non_empty"
+  }
 }
